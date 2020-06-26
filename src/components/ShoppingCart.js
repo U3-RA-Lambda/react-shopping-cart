@@ -1,15 +1,16 @@
-import React, { useContext} from 'react';
+
+import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 
 // Components
 import Item from './ShoppingCartItem';
 
 const ShoppingCart = () => {
-	const cart = useContext(CartContext)
+  const cart = useContext(CartContext)
 
-	const removeItem = () => {
-		cart.pop()
-	  }
+  const removeItem = () => {
+    cart.pop()
+  }
 
 	const getCartTotal = () => {
 		return cart.reduce((acc, value) => {
@@ -17,11 +18,10 @@ const ShoppingCart = () => {
 		}, 0).toFixed(2);
 	};
 
-
 	return (
 		<div className="shopping-cart">
 			{cart.map(item => (
-				<Item key={item.id} {...item} removeItem={removeItem}/>
+				<Item key={item.id} {...item} removeItem={removeItem} />
 			))}
 
 			<div className="shopping-cart__checkout">

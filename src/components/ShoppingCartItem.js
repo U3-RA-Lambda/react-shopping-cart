@@ -1,24 +1,16 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../contexts/CartContext';
+import React from 'react';
 
-const Item = () => {
-
-	const cart = useContext(CartContext)
-
-	const removeItem = () => {
-		cart.pop()
-	  }
-
-	
+const Item = props => {
+  console.log('ShoppingCartItem props', props)
 	return (
 		<div className="shopping-cart_item">
-			<img src={cart.image} alt={`${cart.title} book`} />
+			<img src={props.image} alt={`${props.title} book`} />
 
 
 			<div>
-				<h1>{cart.title}</h1>
-				<p>$ {cart.price}</p>
-				<button onClick={removeItem}>Remove from cart</button>
+				<h1>{props.title}</h1>
+				<p>$ {props.price}</p>
+				<button onClick={props.removeItem}>Remove from cart</button>
 			</div>
 		</div>
 	);
