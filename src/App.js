@@ -12,7 +12,9 @@ function App() {
 	const [cart, setCart] = useState([]);
 
 	const addItem = item => {
-		// add the given item to the cart
+		cart.map(item => (
+			<Item key={item.id} {...item} />
+		)// add the given item to the cart
 	};
 
 	return (
